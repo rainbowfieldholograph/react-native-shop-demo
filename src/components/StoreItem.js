@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import {Statistics} from './Statistics';
 import {Tags} from './Tags';
 import {useNavigation} from '@react-navigation/native';
@@ -9,7 +8,7 @@ export const StoreItem = ({title, image, added, tags, price}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity
+      <Pressable
         style={styles.imgWrapper}
         onPress={() => {
           navigation.navigate('StoreModal', {
@@ -21,7 +20,7 @@ export const StoreItem = ({title, image, added, tags, price}) => {
           });
         }}>
         <Image source={{uri: image}} style={styles.img} />
-      </TouchableOpacity>
+      </Pressable>
       <View style={styles.infoBox}>
         <Text style={styles.title}>{title}</Text>
         <View style={{marginBottom: 14}}>
@@ -52,8 +51,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   infoBox: {
-    paddingLeft: 12,
-    paddingRight: 24,
+    paddingHorizontal: 12,
   },
   title: {
     fontSize: 20,
