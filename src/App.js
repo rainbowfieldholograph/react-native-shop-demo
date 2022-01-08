@@ -1,15 +1,16 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {ProductProvider} from './context/ProductsContext';
 import {AppNavigator} from './navigation/AppNavigator';
 
 export const App = () => {
   return (
-    <View style={styles.container}>
+    <GestureHandlerRootView style={styles.container}>
       <ProductProvider>
         <AppNavigator />
       </ProductProvider>
-    </View>
+    </GestureHandlerRootView>
   );
 };
 

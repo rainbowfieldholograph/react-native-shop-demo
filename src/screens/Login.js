@@ -15,7 +15,7 @@ export const Login = () => {
         placeholderTextColor="#333333"
         value={mail}
         onChangeText={text => setMail(text)}
-        style={{
+        inputStyle={{
           marginBottom: 20,
         }}
       />
@@ -24,7 +24,7 @@ export const Login = () => {
         placeholderTextColor="#333333"
         value={pass}
         onChangeText={text => setPass(text)}
-        style={{
+        inputStyle={{
           marginBottom: 40,
         }}
       />

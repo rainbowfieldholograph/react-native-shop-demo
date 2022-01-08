@@ -1,12 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {Header} from './Header';
 import {Statistics} from './Statistics';
 import {Tags} from './Tags';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export const StoreModal = ({navigation, route}) => {
+import {useNavigation} from '@react-navigation/native';
+import {GoBackArrow} from './GoBackArrow';
+
+export const StoreModal = ({route}) => {
+  const navigation = useNavigation();
   const {title, image, added, tags, price} = route?.params;
   return (
     <View
@@ -16,9 +18,7 @@ export const StoreModal = ({navigation, route}) => {
         backgroundColor: 'transparent',
       }}>
       <Header search={false} circle={false}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name="arrow-left" size={30} color="#FFA900" />
-        </TouchableOpacity>
+        <GoBackArrow />
       </Header>
       <Image
         style={{flex: 1, width: '100%', resizeMode: 'cover'}}

@@ -1,17 +1,10 @@
 import React from 'react';
-import {ScrollView} from 'react-native-gesture-handler';
+import {ScrollView, StyleSheet} from 'react-native';
 import PointCard from './PointCard';
 
 export const Point = ({data = []}) => {
   return (
-    <ScrollView
-      style={{
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#FFFFFF',
-        paddingHorizontal: 12,
-        paddingTop: 20,
-      }}>
+    <ScrollView style={styles.wrapper}>
       {data.map((item, index) => {
         return (
           <PointCard
@@ -44,3 +37,13 @@ export const Point = ({data = []}) => {
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  wrapper: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#FFFFFF',
+    paddingHorizontal: 12,
+    paddingTop: 20,
+  },
+});

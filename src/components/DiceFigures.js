@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import {DiceFigure} from './DiceFigure';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -19,41 +19,14 @@ const figuresData = [
 
 export const DiceFigures = () => {
   const [selectedItem, setSelectedItem] = useState(0);
-  const styles = StyleSheet.create({
-    container: {
-      width: 50,
-      borderRadius: 12,
-      display: 'flex',
-      alignItems: 'center',
-      marginRight: 8,
-    },
-    figuresButton: {
-      backgroundColor: 'rgba(0, 0, 0, 0.4)',
-      width: 48,
-      height: 48,
-      borderWidth: 1,
-      borderColor: showFigures ? '#FFA900' : '#FFFFFF',
-      borderRadius: 12,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginBottom: 4,
-    },
-    figuresArrowButton: {
-      width: 48,
-      height: 24,
-      backgroundColor: 'rgba(0, 0, 0, 0.4)',
-      borderRadius: 12,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  });
   const [showFigures, setShowFigures] = useState(false);
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        style={styles.figuresButton}
+        style={{
+          ...styles.figuresButton,
+          borderColor: showFigures ? '#FFA900' : '#FFFFFF',
+        }}
         onPress={() => setShowFigures(!showFigures)}>
         <DiceFigure
           id={selectedItem}
@@ -61,7 +34,7 @@ export const DiceFigures = () => {
           size={ICON_SIZE}
           color={ICON_COLOR}
           selectedItem={selectedItem}
-          setSelectedItem={() => setShowFigures(!showFigures)}
+          onPress={() => setShowFigures(!showFigures)}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -74,35 +47,64 @@ export const DiceFigures = () => {
         />
       </TouchableOpacity>
       {showFigures && (
-        <View
-          style={{
-            width: '100%',
-            alignItems: 'center',
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-            borderRadius: 12,
-          }}>
-          {figuresData.map(figure => {
-            return (
-              <DiceFigure
-                key={figure.id}
-                id={figure.id}
-                title={figure.title}
-                size={ICON_SIZE}
-                color={selectedItem == figure.id ? '#FFA900' : ICON_COLOR}
-                text={figure.text}
-                setSelectedItem={() => setSelectedItem(figure.id)}
-                figureStyles={{
-                  marginBottom: 10,
-                  paddingTop: 4,
-                  paddingBottom: 4,
-                  borderBottomWidth: 1,
-                  borderBottomColor: 'rgba(255, 255, 255, 0.4)',
-                }}
-              />
-            );
-          })}
+        <View style={styles.figuresContainer}>
+          {figuresData.map(figure => (
+            <DiceFigure
+              key={figure.id}
+              id={figure.id}
+              title={figure.title}
+              size={ICON_SIZE}
+              color={selectedItem == figure.id ? '#FFA900' : ICON_COLOR}
+              text={figure.text}
+              onPress={() => setSelectedItem(figure.id)}
+              figureStyles={styles.figure}
+            />
+          ))}
         </View>
       )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: 50,
+    borderRadius: 12,
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: 8,
+  },
+  figuresButton: {
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    width: 48,
+    height: 48,
+    borderWidth: 1,
+    borderRadius: 12,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  figuresArrowButton: {
+    width: 48,
+    height: 24,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    borderRadius: 12,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  figure: {
+    marginBottom: 10,
+    paddingTop: 4,
+    paddingBottom: 4,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.4)',
+  },
+  figuresContainer: {
+    width: '100%',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    borderRadius: 12,
+  },
+});

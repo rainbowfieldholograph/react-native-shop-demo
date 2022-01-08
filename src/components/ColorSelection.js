@@ -6,40 +6,15 @@ import SelectColorBlock from './SelectColorBlock';
 const ColorSelection = ({colorsData}) => {
   const [showColors, setShowColors] = useState(false);
   const [selectedColor, setSelectedColor] = useState(colorsData[0]);
-  const styles = StyleSheet.create({
-    container: {
-      width: 50,
-      borderRadius: 12,
-      display: 'flex',
-      alignItems: 'center',
-      marginRight: 8,
-    },
-    changeColorButton: {
-      width: 48,
-      height: 48,
-      borderWidth: 2,
-      borderColor: showColors ? '#FFA900' : '#FFFFFF',
-      borderRadius: 12,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginBottom: 4,
-      backgroundColor: selectedColor,
-    },
-    arrowButton: {
-      width: 48,
-      height: 24,
-      backgroundColor: 'rgba(0, 0, 0, 0.4)',
-      borderRadius: 12,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  });
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        style={styles.changeColorButton}
+        style={{
+          ...styles.changeColorButton,
+          backgroundColor: selectedColor,
+          borderColor: showColors ? '#FFA900' : '#FFFFFF',
+        }}
         onPress={() => {
           setShowColors(!showColors);
         }}
@@ -56,14 +31,7 @@ const ColorSelection = ({colorsData}) => {
         />
       </TouchableOpacity>
       {showColors && (
-        <View
-          style={{
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-            borderRadius: 12,
-            padding: 6,
-          }}>
+        <View style={styles.selectionBackground}>
           {colorsData.map((item, index) => (
             <SelectColorBlock
               key={index}
@@ -77,5 +45,41 @@ const ColorSelection = ({colorsData}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: 50,
+    borderRadius: 12,
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: 8,
+  },
+  changeColorButton: {
+    width: 48,
+    height: 48,
+    borderWidth: 2,
+    borderRadius: 12,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  arrowButton: {
+    width: 48,
+    height: 24,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    borderRadius: 12,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  selectionBackground: {
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    borderRadius: 12,
+    padding: 6,
+  },
+});
 
 export default ColorSelection;

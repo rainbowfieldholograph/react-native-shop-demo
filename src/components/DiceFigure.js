@@ -12,7 +12,7 @@ export const DiceFigure = ({
   size,
   color,
   text,
-  setSelectedItem,
+  onPress,
   figureStyles,
 }) => {
   const svgs = {
@@ -40,7 +40,7 @@ export const DiceFigure = ({
   });
 
   return (
-    <TouchableOpacity style={styles.figure} onPress={() => setSelectedItem()}>
+    <TouchableOpacity style={styles.figure} onPress={() => onPress()}>
       {svgs[`${title}`]()}
       {text && <Text style={styles.text}>{text}</Text>}
     </TouchableOpacity>
