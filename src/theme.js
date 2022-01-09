@@ -5,6 +5,7 @@ export const theme = {
   secondary: '#FFFFFF',
   tertiary: '#000',
   faded: '#EFEFEF',
+  destructive: '#3CB371',
 
   text: {
     primary: '#000',

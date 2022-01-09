@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   img: {
     width: '100%',
     height: 400,
-    resizeMode: 'cover',
+    resizeMode: 'stretch',
   },
   infoBox: {
     paddingHorizontal: 12,

@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     overflow: 'hidden',
     backgroundColor: theme.faded,
+    borderWidth: 1,
+    borderColor: theme.tertiary,
   },
   text: {
     fontSize: 12,
