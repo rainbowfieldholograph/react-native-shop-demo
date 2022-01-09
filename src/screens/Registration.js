@@ -12,11 +12,11 @@ export const Registration = () => {
   return (
     <AuthContainer>
       <AuthInput
-        placeholder="Name"
+        placeholder="Mail"
+        placeholderTextColor="#333333"
         value={login}
         onChangeText={text => setlogin(text)}
-        placeholderTextColor="#333333"
-        style={{
+        inputStyle={{
           marginBottom: 20,
         }}
       />
@@ -25,8 +25,8 @@ export const Registration = () => {
         value={mailInput}
         onChangeText={text => setMailInput(text)}
         placeholderTextColor="#333333"
-        style={{
-          marginBottom: 40,
+        inputStyle={{
+          marginBottom: 20,
         }}
       />
       <AuthInput
@@ -34,7 +34,7 @@ export const Registration = () => {
         placeholderTextColor="#333333"
         value={password}
         onChangeText={text => setPassword(text)}
-        style={{
+        inputStyle={{
           marginBottom: 40,
         }}
         type="password"

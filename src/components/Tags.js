@@ -21,10 +21,9 @@ export const Tags = ({tags}) => {
         return (
           <Tag
             key={index}
-            title={tag.title}
-            tagStyles={{
+            title={tag}
+            tagStyle={{
               marginRight: isLastElement ? 10 : 0,
-              backgroundColor: tag.color,
             }}
           />
         );
