@@ -5,17 +5,20 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const KeyModal = ({navigation}) => {
-  const onClickAcceptButton = () => navigation.goBack();
+  const onClickOut = () => navigation.goBack();
   return (
-    <View style={styles.wrapper}>
-      <View style={styles.container}>
+    <Pressable onPress={() => onClickOut()} style={styles.wrapper}>
+      <Pressable
+        onPress={event => event.stopPropagation()}
+        style={styles.container}>
         <View style={styles.exitWrapper}>
           <IconFontAwesome5
-            onPress={() => navigation.goBack()}
+            onPress={() => onClickOut()}
             name="times"
             size={30}
             color="#F5B33E"
@@ -24,12 +27,12 @@ const KeyModal = ({navigation}) => {
         <Text style={styles.title}>Введите лицензионный ключ</Text>
         <TextInput style={styles.input} />
         <TouchableOpacity
-          onPress={() => onClickAcceptButton()}
+          onPress={() => onClickOut()}
           style={styles.acceptButton}>
           <Text style={styles.acceptButtonText}>Подтвердить</Text>
         </TouchableOpacity>
-      </View>
-    </View>
+      </Pressable>
+    </Pressable>
   );
 };
 

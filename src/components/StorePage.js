@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import {GoBackArrow} from './GoBackArrow';
 import {PressableArea} from './PressableArea';
 
-export const StoreModal = ({route}) => {
+export const StorePage = ({route}) => {
   const navigation = useNavigation();
   const {title, image, added, tags, price} = route?.params;
   return (

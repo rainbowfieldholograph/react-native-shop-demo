@@ -9,7 +9,7 @@ export const StoreItem = ({title, image, added, tags, price}) => {
   const navigation = useNavigation();
 
   const navigateToItemModal = () => {
-    navigation.navigate('StoreModal', {
+    navigation.navigate('StorePage', {
       title: title,
       image: image,
       added: added,
@@ -31,6 +31,7 @@ export const StoreItem = ({title, image, added, tags, price}) => {
         </PressableArea>
         <View style={styles.statisticsArea}>
           <Statistics added={added} />
+          <Text style={styles.price}>{price} руб.</Text>
         </View>
         <Tags tags={tags} />
       </View>
@@ -65,5 +66,9 @@ const styles = StyleSheet.create({
   },
   statisticsArea: {
     marginBottom: 16,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
+  price: {},
 });
