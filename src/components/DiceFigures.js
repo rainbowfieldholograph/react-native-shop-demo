@@ -3,9 +3,10 @@ import {useState} from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import {DiceFigure} from './DiceFigure';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {theme} from '../theme';
 
 const ICON_SIZE = 35;
-const ICON_COLOR = '#FFFFFF';
+const ICON_COLOR = theme.secondary;
 
 const figuresData = [
   {id: 0, title: 'pyramid', text: 'D4'},
@@ -25,7 +26,7 @@ export const DiceFigures = () => {
       <TouchableOpacity
         style={{
           ...styles.figuresButton,
-          borderColor: showFigures ? '#FFA900' : '#FFFFFF',
+          borderColor: showFigures ? theme.primary : theme.secondary,
         }}
         onPress={() => setShowFigures(!showFigures)}>
         <DiceFigure
@@ -43,7 +44,7 @@ export const DiceFigures = () => {
         <IconFontAwesome5
           name={showFigures ? 'chevron-down' : 'chevron-up'}
           size={20}
-          color={showFigures ? '#FFA900' : '#FFFFFF'}
+          color={showFigures ? theme.primary : theme.secondary}
         />
       </TouchableOpacity>
       {showFigures && (
@@ -54,7 +55,7 @@ export const DiceFigures = () => {
               id={figure.id}
               title={figure.title}
               size={ICON_SIZE}
-              color={selectedItem == figure.id ? '#FFA900' : ICON_COLOR}
+              color={selectedItem == figure.id ? theme.primary : ICON_COLOR}
               text={figure.text}
               onPress={() => setSelectedItem(figure.id)}
               figureStyles={styles.figure}

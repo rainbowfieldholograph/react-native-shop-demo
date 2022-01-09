@@ -4,6 +4,7 @@ import {Statistics} from './Statistics';
 import {Tags} from './Tags';
 import {useNavigation} from '@react-navigation/native';
 import {PressableArea} from './PressableArea';
+import {theme} from '../theme';
 
 export const StoreItem = ({title, image, added, tags, price}) => {
   const navigation = useNavigation();
@@ -31,7 +32,7 @@ export const StoreItem = ({title, image, added, tags, price}) => {
         </PressableArea>
         <View style={styles.statisticsArea}>
           <Statistics added={added} />
-          <Text style={styles.price}>{price} руб.</Text>
+          <Text>{price} руб.</Text>
         </View>
         <Tags tags={tags} />
       </View>
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     marginBottom: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#EFEFEF',
+    borderBottomColor: theme.faded,
   },
   imgWrapper: {
     alignItems: 'center',
@@ -70,5 +71,4 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  price: {},
 });

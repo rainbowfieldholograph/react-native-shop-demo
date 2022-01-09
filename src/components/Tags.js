@@ -2,8 +2,6 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Tag} from './Tag';
 
-// const colors = ['#F5B33E', '#5031F5', '#B834E7'];
-
 export const Tags = ({tags}) => {
   const styles = StyleSheet.create({
     container: {

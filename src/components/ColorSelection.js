@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import {theme} from '../theme';
 import SelectColorBlock from './SelectColorBlock';
+import {PressableArea} from './PressableArea';
 
 const ColorSelection = ({colorsData}) => {
   const [showColors, setShowColors] = useState(false);
@@ -9,17 +11,17 @@ const ColorSelection = ({colorsData}) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
+      <PressableArea
         style={{
           ...styles.changeColorButton,
           backgroundColor: selectedColor,
-          borderColor: showColors ? '#FFA900' : '#FFFFFF',
+          borderColor: showColors ? theme.primary : theme.secondary,
         }}
         onPress={() => {
           setShowColors(!showColors);
         }}
       />
-      <TouchableOpacity
+      <PressableArea
         style={styles.arrowButton}
         onPress={() => {
           setShowColors(!showColors);
@@ -27,9 +29,9 @@ const ColorSelection = ({colorsData}) => {
         <FontAwesome5Icon
           name={showColors ? 'chevron-down' : 'chevron-up'}
           size={20}
-          color={showColors ? '#FFA900' : '#FFFFFF'}
+          color={showColors ? theme.primary : theme.secondary}
         />
-      </TouchableOpacity>
+      </PressableArea>
       {showColors && (
         <View style={styles.selectionBackground}>
           {colorsData.map((item, index) => (

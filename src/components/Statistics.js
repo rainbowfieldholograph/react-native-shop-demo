@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {theme} from '../theme';
 
 export const Statistics = ({added, style}) => {
   return (
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     padding: 5,
     borderWidth: 1,
     borderRadius: 12,
-    borderColor: '#F5B33E',
+    borderColor: theme.primary,
   },
   text: {
     fontSize: 12,

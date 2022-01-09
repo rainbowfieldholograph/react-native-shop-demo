@@ -6,6 +6,7 @@ import {Tags} from './Tags';
 import {useNavigation} from '@react-navigation/native';
 import {GoBackArrow} from './GoBackArrow';
 import {PressableArea} from './PressableArea';
+import {theme} from '../theme';
 
 export const StorePage = ({route}) => {
   const navigation = useNavigation();
@@ -35,14 +36,19 @@ export const StorePage = ({route}) => {
 };
 
 const styles = StyleSheet.create({
-  wrapper: {flex: 1, backgroundColor: 'white'},
-  image: {flex: 1, width: '100%', resizeMode: 'stretch'},
+  wrapper: {
+    flex: 1,
+    backgroundColor: theme.secondary,
+  },
+  image: {
+    flex: 1,
+    width: '100%',
+    resizeMode: 'stretch',
+  },
   infoArea: {
-    backgroundColor: '#EFEFEF',
     width: '100%',
     paddingVertical: 16,
     paddingHorizontal: 12,
-    borderTopRightRadius: 16,
   },
   statisticArea: {
     marginBottom: 14,
@@ -51,12 +57,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 16,
   },
-  price: {marginTop: 14, marginBottom: 12},
+  price: {
+    marginTop: 14,
+    marginBottom: 12,
+  },
   keyBtn: {
     width: '100%',
     alignItems: 'center',
     paddingVertical: 8,
-    backgroundColor: '#119C38',
+    backgroundColor: theme.faded,
+    borderWidth: 1,
+    borderColor: theme.primary,
     borderRadius: 12,
     marginBottom: 16,
   },
@@ -64,11 +75,13 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     paddingVertical: 8,
-    backgroundColor: '#333333',
+    backgroundColor: theme.faded,
+    borderWidth: 1,
+    borderColor: theme.primary,
     borderRadius: 12,
   },
   btnText: {
     fontSize: 12,
-    color: '#FFFFFF',
+    color: theme.text.tertiary,
   },
 });

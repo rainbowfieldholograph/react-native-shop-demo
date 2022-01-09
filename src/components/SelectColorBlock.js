@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
+import {theme} from '../theme';
 
 const SelectColorBlock = ({color, selectedColor, setSelectedColor}) => {
   return (
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     height: 40,
     marginBottom: 8,
     borderRadius: 8,
-    borderColor: '#FFFFFF',
+    borderColor: theme.secondary,
   },
 });
 

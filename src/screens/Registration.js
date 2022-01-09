@@ -13,7 +13,6 @@ export const Registration = () => {
     <AuthContainer>
       <AuthInput
         placeholder="Mail"
-        placeholderTextColor="#333333"
         value={login}
         onChangeText={text => setlogin(text)}
         inputStyle={{
@@ -24,14 +23,12 @@ export const Registration = () => {
         placeholder="Mail"
         value={mailInput}
         onChangeText={text => setMailInput(text)}
-        placeholderTextColor="#333333"
         inputStyle={{
           marginBottom: 20,
         }}
       />
       <AuthInput
         placeholder="Password"
-        placeholderTextColor="#333333"
         value={password}
         onChangeText={text => setPassword(text)}
         inputStyle={{

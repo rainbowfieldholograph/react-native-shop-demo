@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {Pressable, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {theme} from '../theme';
 import {PressableArea} from './PressableArea';
 
 export const AuthButton = ({children, goTo, buttonStyles, ...rest}) => {
@@ -18,7 +19,7 @@ export const AuthButton = ({children, goTo, buttonStyles, ...rest}) => {
 const styles = StyleSheet.create({
   button: {
     paddingVertical: 8,
-    backgroundColor: '#FFA900',
+    backgroundColor: theme.primary,
     alignItems: 'center',
     borderRadius: 8,
   },

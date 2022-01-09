@@ -10,6 +10,7 @@ import {
 import Achievements from '../components/Achievements';
 import {Point} from '../components/Point';
 import {useProductContext} from '../context/ProductsContext';
+import {theme} from '../theme';
 
 const data = [];
 
@@ -26,7 +27,7 @@ export default function ({navigation}) {
       height: 36,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: toggleBlocks ? 'transparent' : '#FFFFFF', //
+      backgroundColor: toggleBlocks ? 'transparent' : theme.secondary,
       borderTopRightRadius: 12,
       borderTopLeftRadius: 12,
     },
@@ -35,7 +36,7 @@ export default function ({navigation}) {
       height: 36,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: toggleBlocks ? '#FFFFFF' : 'transparent', //
+      backgroundColor: toggleBlocks ? theme.secondary : 'transparent',
       borderTopRightRadius: 12,
       borderTopLeftRadius: 12,
     },

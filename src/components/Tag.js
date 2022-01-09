@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {theme} from '../theme';
 
 export const Tag = ({title, tagStyle}) => {
   return (
@@ -18,10 +19,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 2,
     overflow: 'hidden',
-    backgroundColor: '#DCDCDC',
+    backgroundColor: theme.faded,
   },
   text: {
     fontSize: 12,
-    color: '#000',
+    color: theme.text.primary,
   },
 });

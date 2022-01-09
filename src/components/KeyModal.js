@@ -8,6 +8,7 @@ import {
   Pressable,
 } from 'react-native';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {theme} from '../theme';
 
 const KeyModal = ({navigation}) => {
   const onClickOut = () => navigation.goBack();
@@ -21,7 +22,7 @@ const KeyModal = ({navigation}) => {
             onPress={() => onClickOut()}
             name="times"
             size={30}
-            color="#F5B33E"
+            color={theme.primary}
           />
         </View>
         <Text style={styles.title}>Введите лицензионный ключ</Text>
@@ -45,26 +46,27 @@ const styles = StyleSheet.create({
   container: {
     height: 300,
     width: '80%',
-    backgroundColor: '#EFEFEF',
+    backgroundColor: theme.faded,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: theme.tertiary,
   },
   exitWrapper: {
     position: 'absolute',
-    top: 0,
-    right: 0,
-    paddingRight: 8,
-    paddingTop: 8,
+    top: 8,
+    right: 8,
   },
-  title: {fontSize: 20, marginBottom: 20},
+  title: {
+    fontSize: 20,
+    marginBottom: 20,
+  },
   input: {
     width: '80%',
     justifyContent: 'center',
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: theme.tertiary,
     overflow: 'hidden',
     marginBottom: 15,
   },
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
   },
   acceptButtonText: {
     fontSize: 18,
-    color: '#FFF',
+    color: theme.text.secondary,
   },
 });
 

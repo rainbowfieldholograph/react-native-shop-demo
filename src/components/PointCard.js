@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
+import {theme} from '../theme';
 import {Statistics} from './Statistics';
 
 const PointCard = ({imgSrc, title, users, time, added, price}) => {
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 24,
     borderWidth: 1,
-    borderColor: '#FFFFFF',
+    borderColor: theme.secondary,
   },
   image: {width: 72, height: 100},
   container: {

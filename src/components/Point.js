@@ -1,5 +1,6 @@
 import React from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
+import {theme} from '../theme';
 import PointCard from './PointCard';
 
 export const Point = ({data = []}) => {
@@ -18,22 +19,6 @@ export const Point = ({data = []}) => {
           />
         );
       })}
-      {/* <PointCard
-        imgSrc={require('../img/dalshe-boga-net.png')}
-        title="Дальше бога нет!"
-        users="1"
-        time="60+"
-        added="14"
-        price="599"
-      /> */}
-      {/* <PointCard
-        imgSrc={require('../img/mammathodus.png')}
-        title="The Forgotten history MAMMOTHODUS"
-        users="1"
-        time="60+"
-        added="14"
-        price="2500"
-      /> */}
     </ScrollView>
   );
 };
@@ -42,7 +27,7 @@ const styles = StyleSheet.create({
   wrapper: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme.secondary,
     paddingHorizontal: 12,
     paddingTop: 20,
   },

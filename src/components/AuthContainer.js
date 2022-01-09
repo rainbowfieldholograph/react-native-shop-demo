@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {theme} from '../theme';
 
 const AuthContainer = ({children}) => {
   return (
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#E5E5E5',
+    backgroundColor: theme.background,
   },
   inner: {
     width: '100%',
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   title: {
     marginBottom: 40,
     fontSize: 30,
-    color: '#000',
+    color: theme.text.primary,
     fontWeight: '600',
   },
 });
