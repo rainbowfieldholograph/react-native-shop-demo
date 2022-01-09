@@ -1,29 +1,35 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {Statistics} from './Statistics';
 import {Tags} from './Tags';
 import {useNavigation} from '@react-navigation/native';
+import {PressableArea} from './PressableArea';
 
 export const StoreItem = ({title, image, added, tags, price}) => {
   const navigation = useNavigation();
+
+  const navigateToItemModal = () => {
+    navigation.navigate('StoreModal', {
+      title: title,
+      image: image,
+      added: added,
+      tags: tags,
+      price: price,
+    });
+  };
+
   return (
     <View style={styles.container}>
-      <Pressable
+      <PressableArea
         style={styles.imgWrapper}
-        onPress={() => {
-          navigation.navigate('StoreModal', {
-            title: title,
-            image: image,
-            added: added,
-            tags: tags,
-            price: price,
-          });
-        }}>
+        onPress={() => navigateToItemModal()}>
         <Image source={{uri: image}} style={styles.img} />
-      </Pressable>
+      </PressableArea>
       <View style={styles.infoBox}>
-        <Text style={styles.title}>{title}</Text>
-        <View style={{marginBottom: 14}}>
+        <PressableArea onPress={() => navigateToItemModal()}>
+          <Text style={styles.title}>{title}</Text>
+        </PressableArea>
+        <View style={styles.statisticsArea}>
           <Statistics added={added} />
         </View>
         <Tags tags={tags} />
@@ -55,6 +61,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
+    marginBottom: 16,
+  },
+  statisticsArea: {
     marginBottom: 16,
   },
 });
