@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {ProductProvider} from './context/ProductsContext';
 import {AppNavigator} from './navigation/AppNavigator';
-import {theme} from './theme';
+import {theme} from './helpers/theme';
 
 export const App = () => {
   return (

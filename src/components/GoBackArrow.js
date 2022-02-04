@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Pressable} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {theme} from '../theme';
+import {theme} from '../helpers/theme';
 
 export const GoBackArrow = () => {
   const navigation = useNavigation();

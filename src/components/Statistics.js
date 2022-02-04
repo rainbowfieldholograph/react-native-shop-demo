@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {theme} from '../theme';
+import {theme} from '../helpers/theme';
 
 export const Statistics = ({added, style}) => {
   return (

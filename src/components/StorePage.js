@@ -6,7 +6,7 @@ import {Tags} from './Tags';
 import {useNavigation} from '@react-navigation/native';
 import {GoBackArrow} from './GoBackArrow';
 import {PressableArea} from './PressableArea';
-import {theme} from '../theme';
+import {theme} from '../helpers/theme';
 
 export const StorePage = ({route}) => {
   const navigation = useNavigation();

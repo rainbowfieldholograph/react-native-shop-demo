@@ -1,11 +1,12 @@
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
-import {theme} from '../theme';
+import {ScrollView, StyleSheet, Text} from 'react-native';
+import {theme} from '../helpers/theme';
 import PointCard from './PointCard';
 
-export const Point = ({data = []}) => {
+export const Favorites = ({data = []}) => {
   return (
     <ScrollView style={styles.wrapper}>
+      <Text style={styles.title}>Favorites</Text>
       {data.map((item, index) => {
         return (
           <PointCard
@@ -30,5 +31,10 @@ const styles = StyleSheet.create({
     backgroundColor: theme.secondary,
     paddingHorizontal: 12,
     paddingTop: 20,
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 20,
+    marginBottom: 20,
   },
 });

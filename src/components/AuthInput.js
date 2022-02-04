@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
-import {theme} from '../theme';
+import {theme} from '../helpers/theme';
 
-const MyInput = ({inputStyle, ...rest}) => {
+const AuthInput = ({style: customStyles, ...rest}) => {
   const styles = StyleSheet.create({
     width: '100%',
     padding: 8,
@@ -10,9 +10,9 @@ const MyInput = ({inputStyle, ...rest}) => {
     color: theme.text.primary,
     marginBottom: 20,
     backgroundColor: theme.faded,
-    ...inputStyle,
+    ...customStyles,
   });
   return <TextInput style={styles} {...rest} />;
 };
 
-export default MyInput;
+export default AuthInput;

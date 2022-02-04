@@ -1,114 +1,70 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  SafeAreaView,
-} from 'react-native';
-import Achievements from '../components/Achievements';
-import {Point} from '../components/Point';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {Favorites} from '../components/Favorites';
 import {useProductContext} from '../context/ProductsContext';
-import {theme} from '../theme';
+import {theme} from '../helpers/theme';
+import {PressableArea} from '../components/PressableArea';
+import {useNavigation} from '@react-navigation/native';
 
-const data = [];
-
-export default function ({navigation}) {
-  const [toggleBlocks, setToggleBlocks] = useState(false);
+export default function () {
+  const navigation = useNavigation();
   const products = useProductContext();
-  const logOut = () => {
-    navigation.replace('Login');
-  };
 
-  const styles = StyleSheet.create({
-    boxSelectWrapperLeft: {
-      flex: 1,
-      height: 36,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: toggleBlocks ? 'transparent' : theme.secondary,
-      borderTopRightRadius: 12,
-      borderTopLeftRadius: 12,
-    },
-    boxSelectWrapperRight: {
-      flex: 1,
-      height: 36,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: toggleBlocks ? theme.secondary : 'transparent',
-      borderTopRightRadius: 12,
-      borderTopLeftRadius: 12,
-    },
-  });
+  const logOut = () => navigation.replace('Login');
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View
-        style={{
-          position: 'absolute',
-          right: 0,
-          top: 0,
-          paddingRight: 10,
-          paddingTop: 10,
-          zIndex: 1,
-        }}>
-        <TouchableOpacity>
-          <Icon
-            onPress={() => logOut()}
-            name="sign-out-alt"
-            color={'#FFA900'}
-            size={45}
-          />
-        </TouchableOpacity>
+    <SafeAreaView style={styles.wrapper}>
+      <View style={styles.signOutWrapper}>
+        <PressableArea onPress={() => logOut()}>
+          <Icon name="sign-out-alt" color={'#FFA900'} size={45} />
+        </PressableArea>
       </View>
-      <View
-        style={{
-          width: '100%',
-          height: 216,
-          backgroundColor: 'transparent',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <View
-          style={{
-            width: 80,
-            height: 80,
-            borderRadius: 62,
-            backgroundColor: '#FFA900',
-          }}></View>
-        <View
-          style={{
-            width: 150,
-            marginTop: 8,
-            borderRadius: 12,
-            paddingVertical: 6,
-            backgroundColor: '#FFA900',
-            alignItems: 'center',
-          }}>
-          <Text style={{color: '#FFFFFF'}}>{data?.me?.login}</Text>
+      <View style={styles.userInfo}>
+        <View style={styles.avatar}></View>
+        <View style={styles.usernameWrapper}>
+          <Text style={styles.username}>Username</Text>
         </View>
       </View>
-      <View style={{height: '100%', width: '100%'}}>
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            backgroundColor: 'transparent',
-          }}>
-          <TouchableOpacity
-            style={styles.boxSelectWrapperLeft}
-            onPress={() => setToggleBlocks(false)}>
-            <Text>Point 237</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.boxSelectWrapperRight}
-            onPress={() => setToggleBlocks(true)}>
-            <Text>Achievements</Text>
-          </TouchableOpacity>
-        </View>
-        {toggleBlocks ? <Achievements /> : <Point data={products} />}
-      </View>
+      <Favorites data={products} />
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
+  signOutWrapper: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    paddingRight: 10,
+    paddingTop: 10,
+    zIndex: 1,
+  },
+  userInfo: {
+    width: '100%',
+    height: 216,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  avatar: {
+    width: 80,
+    height: 80,
+    borderRadius: 62,
+    backgroundColor: '#FFA900',
+  },
+  usernameWrapper: {
+    marginTop: 8,
+    borderRadius: 12,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
+    backgroundColor: theme.primary,
+    alignItems: 'center',
+  },
+  username: {
+    color: theme.text.secondary,
+  },
+});

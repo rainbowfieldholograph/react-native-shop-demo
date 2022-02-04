@@ -8,7 +8,7 @@ import {
   Pressable,
 } from 'react-native';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {theme} from '../theme';
+import {theme} from '../helpers/theme';
 
 const KeyModal = ({navigation}) => {
   const onClickOut = () => navigation.goBack();

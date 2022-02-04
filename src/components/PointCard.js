@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
-import {theme} from '../theme';
+import {theme} from '../helpers/theme';
 import {Statistics} from './Statistics';
 
 const PointCard = ({imgSrc, title, users, time, added, price}) => {

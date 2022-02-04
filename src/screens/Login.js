@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import {AuthButton} from '../components/AuthButton';
 import AuthContainer from '../components/AuthContainer';
 import AuthInput from '../components/AuthInput';
@@ -14,19 +14,14 @@ export const Login = () => {
         placeholder="Mail"
         value={mail}
         onChangeText={text => setMail(text)}
-        inputStyle={{
-          marginBottom: 20,
-        }}
       />
       <AuthInput
         placeholder="Password"
         value={pass}
         onChangeText={text => setPass(text)}
-        inputStyle={{
-          marginBottom: 40,
-        }}
+        style={styles.passwordInput}
       />
-      <AuthButton buttonStyles={{marginBottom: 12}} goTo="MainTabs">
+      <AuthButton style={styles.button} goTo="MainTabs">
         <Text>Login</Text>
       </AuthButton>
       <AuthButton goTo="Registration">
@@ -35,3 +30,8 @@ export const Login = () => {
     </AuthContainer>
   );
 };
+
+export const styles = StyleSheet.create({
+  button: {marginBottom: 12},
+  passwordInput: {marginBottom: 40},
+});

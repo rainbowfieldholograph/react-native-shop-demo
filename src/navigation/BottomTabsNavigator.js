@@ -2,9 +2,9 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Home} from '../screens/Home';
 import Profile from '../screens/Profile';
-import {Dice} from '../screens/Dice';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Text} from 'react-native';
+import {Categories} from '../screens/Сategories';
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -28,11 +28,11 @@ export const BottomTabsNavigator = () => {
         }}
       />
       <BottomTabs.Screen
-        name="Dice"
-        component={Dice}
+        name="Сategories"
+        component={Categories}
         options={{
-          tabBarLabel: () => <Text>Dice</Text>,
-          tabBarIcon: ({color}) => <Icon name="dice" color={color} size={25} />,
+          tabBarLabel: () => <Text>Categories</Text>,
+          tabBarIcon: ({color}) => <Icon name="list" color={color} size={25} />,
         }}
       />
       <BottomTabs.Screen

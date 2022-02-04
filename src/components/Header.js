@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {theme} from '../theme';
+import {theme} from '../helpers/theme';
 import {PressableArea} from './PressableArea';
 
 export const Header = ({
@@ -19,7 +19,7 @@ export const Header = ({
       {search && (
         <View style={styles.searchContainer}>
           <Icon name="search" size={20} color={theme.primary} />
-          <TextInput style={styles.input}></TextInput>
+          <TextInput style={styles.input} />
         </View>
       )}
       {cart && (

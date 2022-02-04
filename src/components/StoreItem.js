@@ -4,7 +4,7 @@ import {Statistics} from './Statistics';
 import {Tags} from './Tags';
 import {useNavigation} from '@react-navigation/native';
 import {PressableArea} from './PressableArea';
-import {theme} from '../theme';
+import {theme} from '../helpers/theme';
 
 export const StoreItem = ({title, image, added, tags, price}) => {
   const navigation = useNavigation();
