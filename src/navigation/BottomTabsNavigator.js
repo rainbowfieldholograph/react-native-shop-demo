@@ -5,6 +5,7 @@ import Profile from '../screens/Profile';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Text} from 'react-native';
 import {Categories} from '../screens/Сategories';
+import {CategoryScreen} from '../screens/CategoryScreen';
 
 const BottomTabs = createBottomTabNavigator();
 

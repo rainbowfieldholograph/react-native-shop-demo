@@ -6,6 +6,7 @@ import {StorePage} from '../components/StorePage';
 import {BottomTabsNavigator} from './BottomTabsNavigator';
 import {createStackNavigator} from '@react-navigation/stack';
 import KeyModal from '../components/KeyModal';
+import {CategoryScreen} from '../screens/CategoryScreen';
 
 const MainStack = createStackNavigator();
 
@@ -17,6 +18,7 @@ export const MainNavigator = () => {
       <MainStack.Screen name="MainTabs" component={BottomTabsNavigator} />
       <MainStack.Screen name="Basket" component={Basket} />
       <MainStack.Screen name="StorePage" component={StorePage} />
+      <MainStack.Screen name="CategoryScreen" component={CategoryScreen} />
       <MainStack.Group
         screenOptions={{
           presentation: 'transparentModal',

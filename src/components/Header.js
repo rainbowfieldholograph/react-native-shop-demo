@@ -1,30 +1,30 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useRef} from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {theme} from '../helpers/theme';
 import {PressableArea} from './PressableArea';
 
-export const Header = ({
-  children,
-  circle = true,
-  search = true,
-  cart = true,
-}) => {
+export const Header = ({children, search = true, cart = true}) => {
   const navigation = useNavigation();
+  const inputRef = useRef(null);
+
+  const focusInput = () => inputRef.current.focus();
+
   return (
     <View style={styles.container}>
       {children}
-      {circle && <Icon name="circle" size={24} color={theme.primary} />}
       {search && (
         <View style={styles.searchContainer}>
-          <Icon name="search" size={20} color={theme.primary} />
-          <TextInput style={styles.input} />
+          <PressableArea onPress={focusInput}>
+            <Icon name="search" size={25} color={theme.primary} />
+          </PressableArea>
+          <TextInput ref={inputRef} style={styles.input} />
         </View>
       )}
       {cart && (
         <PressableArea onPress={() => navigation.navigate('Basket')}>
-          <Icon name="shopping-cart" size={24} color={theme.primary} />
+          <Icon name="shopping-cart" size={25} color={theme.primary} />
         </PressableArea>
       )}
     </View>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     overflow: 'hidden',
-    marginHorizontal: 12,
+    marginRight: 12,
   },
   input: {
     width: '100%',

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     padding: 5,
     borderWidth: 1,
     borderRadius: 12,
-    borderColor: theme.primary,
+    borderColor: theme.tertiary,
   },
   text: {
     fontSize: 12,

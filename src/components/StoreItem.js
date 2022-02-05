@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     marginBottom: 12,
     borderBottomWidth: 1,
-    borderBottomColor: theme.faded,
+    borderBottomColor: theme.tertiary,
   },
   imgWrapper: {
     alignItems: 'center',
